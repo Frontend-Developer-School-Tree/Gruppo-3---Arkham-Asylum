@@ -2,6 +2,10 @@ const containerDetenuto = document.getElementById("containerDetenuti");
 const containerGuardie = document.getElementById("containerGuardie");
 const tplDet = document.getElementById("tplDetenuti");
 const urlDet = "../db/detenuti.json";
+const categorieVisualizzazione = document.getElementById(
+    "btnVisualizzaCategoria"
+);
+const selectCategories = document.getElementById("selectCategories");
 
 class Detenuto {
     static async getDetenuto() {
@@ -65,11 +69,6 @@ class Guardie {
 }
 
 // Detenuto.getDetenuto();
-const categorieVisualizzazione = document.getElementById(
-    "btnVisualizzaCategoria"
-);
-
-const selectCategories = document.getElementById("selectCategories");
 
 categorieVisualizzazione.addEventListener("click", handleCategories);
 

@@ -12,6 +12,10 @@ body {
     padding: 0;
 }
 
+.invisible {
+    display: none;
+}
+
 /* ------------------------- FORM -------------------------*/
 
 #modalContainer {
