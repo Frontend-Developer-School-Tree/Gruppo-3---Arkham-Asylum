@@ -1,74 +1,61 @@
-*{
+* {
     box-sizing: border-box;
 }
 
-html{
+html {
     font-size: 62.5%;
 }
 
 body {
-    margin: 0; padding: 0;
+    font-family: "open sans";
+    margin: 0;
+    padding: 0;
 }
 
-/* LOGIN */
-#modalContainer{
-    display: flex;
+/* ------------------------- FORM -------------------------*/
+
+#modalContainer {
     width: 100vw;
     height: 100vh;
-    padding: 0;
-    position: fixed;
-    background-color: rgba(0,0,0,0.5);
-}
-
-.invisible{
-    display: none !important;
+    border: 3px solid green;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .modalBody {
+    width: 60rem;
+    height: 30%;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    border-radius: 0.5rem;
-    flex-wrap: wrap;
-    margin: auto;
-    width: 60rem;
-    background-color: red;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+    text-align: center;
+    border-radius: 1rem;
+    background-color: black;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
     animation: modalUp 1s;
 }
 
-.modalBody form{
-    background-color: #fff;
-    width: 100%;
-    padding: 10px 20px;
-}
-
-.inputField{
-    display: flex;
-    flex-flow: column wrap;
-    justify-content: space-between;
-    margin: 1 rem;
-}
-
-#modalHeader{
-    display: flex;
-    padding: 10px 20px;
-    width: 100%;
-    align-items: center;
-    border-bottom: 1px solid darkgray;
-}
-
-#modalHeader h2{
-    margin: 0;
+#textContent {
     color: #fff;
+    font-size: 3rem;
+    font-weight: 400;
+    letter-spacing: 5px;
+    padding-bottom: 3.5rem;
+    margin: 0;
 }
 
-
-
-
-
+.inputField {
+    padding: 1rem;
+    border-radius: 0.5rem;
+    background-color: transparent;
+}
 
 @keyframes modalUp {
-    from{transform: translateY(-15rem);}
-    to{transform: translateY(0);}
+    from {
+        transform: translateY(-15rem);
+    }
+    to {
+        transform: translateY(0);
+    }
 }
