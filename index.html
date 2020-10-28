@@ -1,43 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="./css/style.css">
-        <title>Document</title>
-    </head>
-    <body>
-        <header>
-            <div class="logo"><img src="./img/Arkham_Asylum_logo.png" alt=""></div>
-            <button id="btnAssumiGuardia">Assumi Guardia</button>
-            <button id="btnRegistraDetenuti">Registra Detenuti</button>
-            <button id="btnAggiungiFascicoli">Aggiungi Fascicoli</button>
-            <button id="btnVisualizzaCategoria">Visualizza Categorie</button>
-            <button id="btnCerca">Cerca</button>
-        </header>
-        <main>
-            <template id="tplDetenuti">
-                <div class="card">
-                    <div class="cardHeader">
-                        <h2 class="nome"></h2>
-                        <div class="idDetenuto"></div>
-                    </div>
-                    <div class="cardBody">
-                        <div class="razza"></div>
-                        <div class="coloreOcchi"></div>
-                        <div class="coloreCapelli"></div>
-                        <div class="altezza"></div>
-                        <div class="peso"></div>
-                        <div class="livelloDiPericolo"></div>
-                        <div class="dataIngresso"></div>
-                        <div class="dataScarcerazione"></div>
-                    </div>
-                </div>
-            </template>
-            <div id="containerDetenuti">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <header>
+        <div class="logo"><img src="./img/Arkham_Asylum_logo.png" alt=""></div>
+        <button id="btnAssumiGuardia">Assumi Guardia</button>
+        <button id="btnRegistraDetenuti">Registra Detenuti</button>
+        <button id="btnAggiungiFascicoli">Aggiungi Fascicoli</button>
+        <button id="btnCerca">Cerca</button>
+        <div class="categorie">
+            <select name="" id="selectCategories">
+                <option value="">Seleziona una Categoria</option>
+                <option value="guardie">Guardie</option>
+                <option value="detenuti">Detenuti</option>
+            </select>
+            <button id="btnVisualizzaCategoria">Visualizza Categorie</button>
+        </div>
+
+    </header>
+    <main>
+        <template id="tplDetenuti">
+            <div class="card">
+                <div class="cardHeader">
+                    <h2 class="nome"></h2>
+                    <div class="idDetenuto"></div>
+                </div>
+                <div class="cardBody">
+                    <div class="razza"></div>
+                    <div class="coloreOcchi"></div>
+                    <div class="coloreCapelli"></div>
+                    <div class="altezza"></div>
+                    <div class="peso"></div>
+                    <div class="livelloDiPericolo"></div>
+                    <div class="reato"></div>
+                    <div class="dataIngresso"></div>
+                    <div class="dataScarcerazione"></div>
+                </div>
             </div>
-        </main>
-        <script src="./js/main.js"></script>
-    </body>
+        </template>
+        <div id="containerDetenuti" class="invisible">
+
+        </div>
+        <div id="containerGuardie" class="invisible">
+
+        </div>
+    </main>
+    <script src="./js/main.js"></script>
+</body>
+
 </html>
