@@ -3,22 +3,60 @@
         "nomePersonaggio": "Amazo",
         "razza": "Android",
         "caratteristicheFisiche": {
-            "Colore_occhi": "red",
+            "coloreOcchi": "red",
             "coloreCapelli": "-",
             "altezza": 257.0,
             "peso": 173.0
         },
-        "livelloDiPericolo": 5
+        "livelloDiPericolo": 5,
+        "fascicoli": {
+            "stato": [
+                "morto"
+            ],
+            "id": 1,
+            "data_carcerazione": "1992",
+            "data_scarcerazione": "1998",
+            "reato": "omicidio"
+        }
     },
     {
         "nomePersonaggio": "Anti-Monitor",
         "razza": "God / Eternal",
         "caratteristicheFisiche": {
-            "Colore_occhi": "yellow",
+            "coloreOcchi": "yellow",
             "coloreCapelli": "No Hair",
             "altezza": 61.0,
             "peso": -99.0
         },
-        "livelloDiPericolo": 4
+        "livelloDiPericolo": 4,
+        "fascicoli": {
+            "stato": [
+                "evaso"
+            ],
+            "id": 2,
+            "data_carcerazione": "1993",
+            "data_scarcerazione": "2001",
+            "reato": "omicidio"
+        }
+    },
+    {
+        "nomePersonaggio": "Atlas",
+        "razza": "God / Eternal",
+        "caratteristicheFisiche": {
+            "coloreOcchi": "blue",
+            "coloreCapelli": "Brown",
+            "altezza": 198,
+            "peso": 126
+        },
+        "livelloDiPericolo": 2,
+        "fascicoli": {
+            "stato": [
+                "riacciuffato"
+            ],
+            "id": 3,
+            "data_carcerazione": "1994",
+            "data_scarcerazione": "2002",
+            "reato": "omicidio"
+        }
     }
 ]
