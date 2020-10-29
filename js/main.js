@@ -11,6 +11,18 @@ const categorieVisualizzazione = document.getElementById(
 const selectCategories = document.getElementById("selectCategories");
 
 class Detenuto {
+    constructor(nome, razza, colOcchi, colCapelli, altezza, peso, pericolo, reato, ingresso, scarcerazione) {
+        this.nome = nome;
+        this.razza = razza;
+        this.colOcchi = colOcchi;
+        this.colCapelli = colCapelli;
+        this.altezza = altezza;
+        this.peso = peso;
+        this.pericolo = pericolo;
+        this.reato = reato;
+        this.ingresso = ingresso;
+        this.scarcerazione = scarcerazione;
+    }
     static async getDetenuto() {
         try {
             const response = await fetch(urlDet);
@@ -143,6 +155,58 @@ function recuperaIdGuardia() {
     let contGuardie = document.getElementById("containerGuardie");
     let prevGuardia = contGuardie.lastElementChild;
     let idLast = prevGuardia.querySelector(".idGuardia").textContent;
+
+    let id = parseInt(idLast.slice(4));
+    return id + 1;
+}
+
+const btnAddDetenuto = document.getElementById('btnAddDetenuto');
+
+btnAddDetenuto.addEventListener('click', handleAddDetenuto)
+
+
+function handleAddDetenuto(e) {
+    e.preventDefault();
+    const inputNomeDetenuto = document.querySelector("#inputNomeDet").value;
+    const inputRazzaDetenuto = document.querySelector("#inputRazza").value;
+    const inputColoreOcchiDetenuto = document.querySelector("#inputColoreOcchi").value;
+    const inputColoreCapelliDetenuto = document.querySelector("#inputColoreCapelli").value;
+    const inputAltezzaDetenuto = document.querySelector("#inputAltezza").value;
+    const inputPesoDetenuto = document.querySelector("#inputPeso").value;
+    const inputPericoloDetenuto = document.querySelector("#inputPericolo").value;
+    const inputReatoDetenuto = document.querySelector("#inputReato").value;
+    const inputIngressoDetenuto = document.querySelector("#inputIngresso").value;
+    const inputScarcerazioneDetenuto = document.querySelector("#inputScarcerazione").value;
+
+    if (inputNomeDetenuto === "" && inputRazzaDetenuto === "") {
+        alert("compila i campi");
+    } else {
+        const newDetenuto = new Detenuto(inputNomeDetenuto, inputRazzaDetenuto, inputColoreOcchiDetenuto, inputColoreCapelliDetenuto, inputAltezzaDetenuto, inputPesoDetenuto, inputPericoloDetenuto, inputReatoDetenuto, inputIngressoDetenuto, inputScarcerazioneDetenuto);
+        //voglio aggiungerlo al #containerGuardie
+        //clono il template
+        const cardDetenuto = document.importNode(tplDetenuti.content, true);
+        cardDetenuto.querySelector(".nome").textContent = newDetenuto.nome;
+        let id = recuperaIdDetenuto();
+        cardDetenuto.querySelector(".idDetenuto").textContent = `ID: ${id}`;
+
+        cardDetenuto.querySelector(".razza").textContent = "Razza: " + newDetenuto.razza;
+        cardDetenuto.querySelector(".coloreOcchi").textContent = "Colore Occhi: " + newDetenuto.colOcchi;
+        cardDetenuto.querySelector(".coloreCapelli").textContent = "Colore Capelli: " + newDetenuto.colCapelli;
+        cardDetenuto.querySelector(".altezza").textContent = "Altezza: " + newDetenuto.altezza;
+        cardDetenuto.querySelector(".peso").textContent = "Peso: " + newDetenuto.peso;
+        cardDetenuto.querySelector(".livelloDiPericolo").textContent = "Pericolo: " + newDetenuto.pericolo;
+        cardDetenuto.querySelector(".reato").textContent = "Reato: " + newDetenuto.reato;
+        cardDetenuto.querySelector(".dataIngresso").textContent = "Incarcerato il: " + newDetenuto.ingresso;
+        cardDetenuto.querySelector(".dataScarcerazione").textContent = "Data di Scarcerazione: " + newDetenuto.scarcerazione;        
+
+        return containerDetenuto.appendChild(cardDetenuto);
+    }
+}
+
+function recuperaIdDetenuto() {
+    let contDetenuti = document.getElementById("containerDetenuti");
+    let prevDetenuti = contDetenuti.lastElementChild;
+    let idLast = prevDetenuti.querySelector(".idDetenuto").textContent;
 
     let id = parseInt(idLast.slice(4));
     return id + 1;
