@@ -9,19 +9,23 @@
 </head>
 
 <body>
-    <header>
-        <div class="logo"><img src="./img/Arkham_Asylum_logo.png" alt=""></div>
-        <button id="btnAssumiGuardia">Assumi Guardia</button>
-        <button id="btnRegistraDetenuti">Registra Detenuti</button>
-        <button id="btnAggiungiFascicoli">Aggiungi Fascicoli</button>
-        <button id="btnCerca">Cerca</button>
-        <div class="categorie">
-            <select name="" id="selectCategories">
-                <option value="">Seleziona una Categoria</option>
-                <option value="guardie">Guardie</option>
-                <option value="detenuti">Detenuti</option>
-            </select>
-            <button id="btnVisualizzaCategoria">Visualizza Categorie</button>
+    <header id="header">
+        <div class="imgLogo">
+            <img id="logoNav" src="./img/Arkham_Asylum_logo.png" alt="">
+        </div>
+        <div id="navbar">
+            <button class="btnNav" id="btnAssumiGuardia">Assumi Guardia</button>
+            <button class="btnNav" id="btnRegistraDetenuti">Registra Detenuti</button>
+            <button class="btnNav" id="btnAggiungiFascicoli">Aggiungi Fascicoli</button>
+            <button class="btnNav" id="btnCerca">Cerca</button>
+            <div class="categorie">
+                <select class="btnNav" name="" id="selectCategories">
+                    <option value="">Seleziona una Categoria</option>
+                    <option value="guardie">Guardie</option>
+                    <option value="detenuti">Detenuti</option>
+                </select>
+                <button class="btnNav" id="btnVisualizzaCategoria">Visualizza Categorie</button>
+        </div>
         </div>
 
     </header>
@@ -84,7 +88,7 @@
                 </form>
             </div>
         </div>
-        <!--  form per aggiungere guardia  -->        
+        <!--  form per aggiungere guardia  -->
         <div id="modalContainerGuardia" class="invisible">
             <div id="aggiungiGuardia">
                 <h2 id="textFormGuardia">Aggiungi Guardia</h2>
