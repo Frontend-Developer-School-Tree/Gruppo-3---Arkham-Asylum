@@ -65,15 +65,9 @@
 
 
 
-        <div id="aggiungiGuardia">
-            <form action="">
-                <input id="inputNome" type="text" value="" placeholder="inserisci nome">
-                <input id="inputNato" type="text" value="" placeholder="inserisci data di nascita">
-                <button id="btnAddGuardia">aggiungi</button>
-            </form>
-        </div>
         <hr>
-        <div id="aggiungiDetenuto">
+        <!--  form per aggiungere detenuti  -->
+        <div id="aggiungiDetenuto"> 
             <form action="">
                 <input id="inputNomeDet" type="text" value="" placeholder="inserisci nome">
                 <input id="inputRazza" type="text" value="" placeholder="inserisci razza">
@@ -87,6 +81,16 @@
                 <input id="inputScarcerazione" type="text" value="" placeholder="inserisci anno di scarcerazione">
                 <button id="btnAddDetenuto">aggiungi</button>
             </form>
+        </div>
+        <!--  form per aggiungere guardia  -->        
+        <div id="modalContainerGuardia" class="invisible">
+            <div id="aggiungiGuardia">
+                <form action="">
+                    <input id="inputNome" type="text" value="" placeholder="inserisci nome">
+                    <input id="inputNato" type="text" value="" placeholder="inserisci data di nascita">
+                    <button id="btnAddGuardia">aggiungi</button>
+                </form>
+            </div>
         </div>
     </main>
     <script src="./js/main.js"></script>

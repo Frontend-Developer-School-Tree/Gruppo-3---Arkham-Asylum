@@ -40,7 +40,7 @@ body {
     background-color: black;
 }
 
-.modalBody {
+.modalBody{
     width: 60rem;
     height: 70%;
     display: flex;
@@ -82,7 +82,43 @@ body {
     margin-top: 1rem;
 }
 
-/* -------------------CONTAINER CARECERATI--------------- */
+
+
+/* ------------------------- FORM AGGIUNGERE GUARDIA -------------------------*/
+
+#modalContainerGuardia{
+    width: 60rem;
+    height: 30rem;
+    display: flex;
+    margin: auto;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    border-radius: 1rem;
+    background-color: yellow;
+    animation: modalUp 2s;
+
+}
+
+#inputNome, #inputNato, #btnAddGuardia{
+    width: 50%;
+    display: block;
+    transform: translateX(50%);
+    padding: .8rem;
+    margin: 1rem;
+    border-radius: 0.8rem;
+    border: transparent;
+}
+
+#btnAddGuardia{
+    border: 2px solid black;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+
+
+/* ------------------------- CONTAINER CARCERATI -------------------------*/
 #containerDetenuti {
     display: flex;
     flex-wrap: wrap;
@@ -99,7 +135,7 @@ body {
     font-size: 2rem;
 }
 
-/* -------------------CONTAINER Guardie--------------- */
+/* ------------------------- CONTAINER GUARDIE -------------------------*/
 #containerGuardie {
     display: flex;
     flex-wrap: wrap;
@@ -108,6 +144,8 @@ body {
     background-color: red;
 }
 
+
+/* ------------------------- ANIMAZIONE -------------------------*/
 @keyframes modalUp {
     from {
         transform: translateY(-15rem);

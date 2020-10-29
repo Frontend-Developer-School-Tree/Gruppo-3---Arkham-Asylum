@@ -10,6 +10,18 @@ const categorieVisualizzazione = document.getElementById(
 );
 const selectCategories = document.getElementById("selectCategories");
 
+// btn assumi guardia
+const btnAssumiGuardia = document.getElementById('btnAssumiGuardia');
+
+btnAssumiGuardia.addEventListener('click', handleOpenGuardia);
+
+function handleOpenGuardia(){
+    const modal = document.getElementById('modalContainerGuardia')
+    modal.classList.remove('invisible')
+}
+
+
+
 class Detenuto {
     constructor(nome, razza, colOcchi, colCapelli, altezza, peso, pericolo, reato, ingresso, scarcerazione) {
         this.nome = nome;
@@ -33,38 +45,22 @@ class Detenuto {
                 const cardDet = document.importNode(tplDet.content, true);
                 // console.log(detenuto.nomePersonaggio)
 
-                cardDet.querySelector(".nome").textContent =
-                    detenuto.nomePersonaggio;
-                cardDet.querySelector(
-                    ".idDetenuto"
-                ).textContent = `ID: ${detenuto.fascicoli.id}`;
-                cardDet.querySelector(".razza").textContent =
-                    "Razza: " + detenuto.razza;
-                cardDet.querySelector(".coloreOcchi").textContent =
-                    "Colore occhi: " +
-                    detenuto.caratteristicheFisiche.coloreOcchi;
-                cardDet.querySelector(".coloreCapelli").textContent =
-                    "Colore capelli: " +
-                    detenuto.caratteristicheFisiche.coloreCapelli;
-                cardDet.querySelector(".altezza").textContent =
-                    "Altezza: " + detenuto.caratteristicheFisiche.altezza;
-                cardDet.querySelector(".peso").textContent =
-                    "Peso: " + detenuto.caratteristicheFisiche.peso;
-                cardDet.querySelector(".livelloDiPericolo").textContent =
-                    "Pericolo: " + detenuto.livelloDiPericolo;
-
-                cardDet.querySelector(".reato").textContent =
-                    "Reato: " + detenuto.fascicoli.reato;
-
-                cardDet.querySelector(".dataIngresso").textContent =
-                    "Incercerato il: " + detenuto.fascicoli.dataCarcerazione;
+                cardDet.querySelector(".nome").textContent = detenuto.nomePersonaggio;
+                cardDet.querySelector(".idDetenuto").textContent = `ID: ${detenuto.fascicoli.id}`;
+                cardDet.querySelector(".razza").textContent = "Razza: " + detenuto.razza;
+                cardDet.querySelector(".coloreOcchi").textContent = "Colore occhi: " + detenuto.caratteristicheFisiche.coloreOcchi;
+                cardDet.querySelector(".coloreCapelli").textContent = "Colore capelli: " + detenuto.caratteristicheFisiche.coloreCapelli;
+                cardDet.querySelector(".altezza").textContent = "Altezza: " + detenuto.caratteristicheFisiche.altezza;
+                cardDet.querySelector(".peso").textContent = "Peso: " + detenuto.caratteristicheFisiche.peso;
+                cardDet.querySelector(".livelloDiPericolo").textContent = "Pericolo: " + detenuto.livelloDiPericolo;
+                cardDet.querySelector(".reato").textContent = "Reato: " + detenuto.fascicoli.reato;
+                cardDet.querySelector(".dataIngresso").textContent = "Incercerato il: " + detenuto.fascicoli.dataCarcerazione;
 
                 //controllo lo stato e vedo se e' avvenuto prima della data di scarcerazione
                 cardDet.querySelector(".dataScarcerazione").textContent =
-                    detenuto.fascicoli.stato[1] <
-                    detenuto.fascicoli.dataScarcerazione
-                        ? `il detenuto e' ${detenuto.fascicoli.stato[0]} nel ${detenuto.fascicoli.stato[1]}`
-                        : `data di scarcerazione: ${detenuto.fascicoli.dataScarcerazione}`;
+                    detenuto.fascicoli.stato[1] < detenuto.fascicoli.dataScarcerazione 
+                    ? `il detenuto e' ${detenuto.fascicoli.stato[0]} nel ${detenuto.fascicoli.stato[1]}` 
+                    : `data di scarcerazione: ${detenuto.fascicoli.dataScarcerazione}`;
 
                 return containerDetenuto.appendChild(cardDet);
             });
@@ -90,15 +86,9 @@ class Guardia {
                     true
                 );
 
-                cardGuardia.querySelector(".nome").textContent =
-                    guardia.nomeGuardia;
-
-                cardGuardia.querySelector(
-                    ".idGuardia"
-                ).textContent = `ID: ${guardia.idGuardia}`;
-
-                cardGuardia.querySelector(".natoIl").textContent =
-                    guardia.natoIl;
+                cardGuardia.querySelector(".nome").textContent = guardia.nomeGuardia;
+                cardGuardia.querySelector(".idGuardia").textContent = `ID: ${guardia.idGuardia}`;
+                cardGuardia.querySelector(".natoIl").textContent = guardia.natoIl;
 
                 return containerGuardie.appendChild(cardGuardia);
             });
@@ -144,8 +134,8 @@ function handleAddGuardia(e) {
         cardGuardia.querySelector(".nome").textContent = newGuardia.nome;
         let id = recuperaIdGuardia();
         cardGuardia.querySelector(".idGuardia").textContent = `ID: ${id}`;
-
         cardGuardia.querySelector(".natoIl").textContent = newGuardia.natoIl;
+        document.getElementById('modalContainerGuardia').classList.add('invisible');
 
         return containerGuardie.appendChild(cardGuardia);
     }
@@ -181,14 +171,18 @@ function handleAddDetenuto(e) {
     if (inputNomeDetenuto === "" && inputRazzaDetenuto === "") {
         alert("compila i campi");
     } else {
-        const newDetenuto = new Detenuto(inputNomeDetenuto, inputRazzaDetenuto, inputColoreOcchiDetenuto, inputColoreCapelliDetenuto, inputAltezzaDetenuto, inputPesoDetenuto, inputPericoloDetenuto, inputReatoDetenuto, inputIngressoDetenuto, inputScarcerazioneDetenuto);
+        const newDetenuto = new Detenuto(
+            inputNomeDetenuto, inputRazzaDetenuto, inputColoreOcchiDetenuto,
+            inputColoreCapelliDetenuto, inputAltezzaDetenuto, inputPesoDetenuto,
+            inputPericoloDetenuto, inputReatoDetenuto, inputIngressoDetenuto,
+            inputScarcerazioneDetenuto
+            );
         //voglio aggiungerlo al #containerGuardie
         //clono il template
         const cardDetenuto = document.importNode(tplDetenuti.content, true);
         cardDetenuto.querySelector(".nome").textContent = newDetenuto.nome;
         let id = recuperaIdDetenuto();
         cardDetenuto.querySelector(".idDetenuto").textContent = `ID: ${id}`;
-
         cardDetenuto.querySelector(".razza").textContent = "Razza: " + newDetenuto.razza;
         cardDetenuto.querySelector(".coloreOcchi").textContent = "Colore Occhi: " + newDetenuto.colOcchi;
         cardDetenuto.querySelector(".coloreCapelli").textContent = "Colore Capelli: " + newDetenuto.colCapelli;
@@ -211,3 +205,4 @@ function recuperaIdDetenuto() {
     let id = parseInt(idLast.slice(4));
     return id + 1;
 }
+
