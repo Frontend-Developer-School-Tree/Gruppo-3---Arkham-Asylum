@@ -29,8 +29,6 @@ function handleOpenDetenuti(){
     modal.classList.remove('invisible')
 }
 
-const arrayDet = []
-const arrayGuard =[]
 
 class Detenuto {
     constructor(nome, razza, colOcchi, colCapelli, altezza, peso, pericolo, reato, ingresso, scarcerazione) {
@@ -72,11 +70,10 @@ class Detenuto {
                     ? `il detenuto e' ${detenuto.fascicoli.stato[0]} nel ${detenuto.fascicoli.stato[1]}` 
                     : `data di scarcerazione: ${detenuto.fascicoli.dataScarcerazione}`;
 
-                arrayDet.push(cardDetenuto);
+                
 
                 return containerDetenuto.appendChild(cardDet);
             });
-            return arrayDet;
         } catch (error) {
             console.error(error);
         }
@@ -103,11 +100,10 @@ class Guardia {
                 cardGuardia.querySelector(".idGuardia").textContent = `ID: ${guardia.idGuardia}`;
                 cardGuardia.querySelector(".natoIl").textContent = guardia.natoIl;
 
-                arrayGuard.push(cardGuardia)
+                
                 return containerGuardie.appendChild(cardGuardia);
             });
-            // console.log("Array di guardie",arrayGuard.length)
-            return arrayGuard
+            
         } catch (error) {
             console.error;
         }
@@ -154,11 +150,10 @@ function handleAddGuardia(e) {
 
         document.getElementById('modalContainerGuardia').classList.add('invisible');
 
-        arrayGuard.push(cardGuardia)
+        
 
         return containerGuardie.appendChild(cardGuardia);
     }  
-    return arrayGuard;
 }
 
 function recuperaIdGuardia() {
@@ -214,10 +209,8 @@ function handleAddDetenuto(e) {
         cardDetenuto.querySelector(".dataScarcerazione").textContent = "Data di Scarcerazione: " + newDetenuto.scarcerazione;        
 
         document.getElementById('modalContainerDetenuto').classList.add('invisible');
-        arrayDet.push(cardDetenuto);
         return containerDetenuto.appendChild(cardDetenuto);
     } 
-    return arrayDet;
 }
 
 function recuperaIdDetenuto() {
