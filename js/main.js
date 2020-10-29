@@ -95,30 +95,24 @@ class Guardia {
     }
 }
 
-// Guardia.getGuardia();
+Detenuto.getDetenuto();
+
+Guardia.getGuardia();
 
 categorieVisualizzazione.addEventListener("click", handleCategories);
 
 function handleCategories() {
     // console.log(selectCategories.value);
     if (selectCategories.value === "detenuti") {
-        //pulisco il container
-        containerDetenuto.innerHTML = ``;
         //rendo il div dei detenuti visibile
         containerDetenuto.classList.remove("invisible");
         //e rendo invisibile l'altro div
         containerGuardie.classList.add("invisible");
-        //chiamo la funzione per stampare le card dei detenuti
-        Detenuto.getDetenuto();
     } else if (selectCategories.value === "guardie") {
-        //pulisco il container
-        containerGuardie.innerHTML = ``;
         //rendo il div dei detenuti visibile
         containerGuardie.classList.remove("invisible");
         //e rendo invisibile l'altro div
         containerDetenuto.classList.add("invisible");
-        //chiamo la funzione per stampare le card dei detenuti
-        Guardia.getGuardia();
     }
 }
 
@@ -133,6 +127,24 @@ function handleAddGuardia(e) {
         alert("inserisci un nome");
     } else {
         const newGuardia = new Guardia(inputNomeGuardia, inputNatoGuardia);
-        console.log(newGuardia);
+        //voglio aggiungerlo al #containerGuardie
+        //clono il template
+        const cardGuardia = document.importNode(tplGuardie.content, true);
+        cardGuardia.querySelector(".nome").textContent = newGuardia.nome;
+        let id = recuperaIdPrecedente();
+        cardGuardia.querySelector(".idGuardia").textContent = `ID: ${id}`;
+
+        cardGuardia.querySelector(".natoIl").textContent = newGuardia.natoIl;
+
+        return containerGuardie.appendChild(cardGuardia);
     }
+}
+
+function recuperaIdPrecedente() {
+    let contGuardie = document.getElementById("containerGuardie");
+    let prevGuardia = contGuardie.lastElementChild;
+    let idLast = prevGuardia.querySelector(".idGuardia").textContent;
+
+    let id = parseInt(idLast.slice(4));
+    return id + 1;
 }
