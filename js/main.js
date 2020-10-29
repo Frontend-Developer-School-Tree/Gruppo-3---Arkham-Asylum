@@ -2,6 +2,7 @@ const tplDet = document.getElementById("tplDetenuti");
 const tplGuarie = document.getElementById("tplGuardie");
 const containerDetenuto = document.getElementById("containerDetenuti");
 const containerGuardie = document.getElementById("containerGuardie");
+const btnAddGuardia = document.getElementById("btnAddGuardia");
 const urlDet = "../db/detenuti.json";
 const urlGuardie = "../db/guardie.json";
 const categorieVisualizzazione = document.getElementById(
@@ -96,7 +97,6 @@ class Guardia {
 }
 
 Detenuto.getDetenuto();
-
 Guardia.getGuardia();
 
 categorieVisualizzazione.addEventListener("click", handleCategories);
@@ -116,7 +116,6 @@ function handleCategories() {
     }
 }
 
-const btnAddGuardia = document.getElementById("btnAddGuardia");
 btnAddGuardia.addEventListener("click", handleAddGuardia);
 
 function handleAddGuardia(e) {
@@ -131,7 +130,7 @@ function handleAddGuardia(e) {
         //clono il template
         const cardGuardia = document.importNode(tplGuardie.content, true);
         cardGuardia.querySelector(".nome").textContent = newGuardia.nome;
-        let id = recuperaIdPrecedente();
+        let id = recuperaIdGuardia();
         cardGuardia.querySelector(".idGuardia").textContent = `ID: ${id}`;
 
         cardGuardia.querySelector(".natoIl").textContent = newGuardia.natoIl;
@@ -140,7 +139,7 @@ function handleAddGuardia(e) {
     }
 }
 
-function recuperaIdPrecedente() {
+function recuperaIdGuardia() {
     let contGuardie = document.getElementById("containerGuardie");
     let prevGuardia = contGuardie.lastElementChild;
     let idLast = prevGuardia.querySelector(".idGuardia").textContent;
