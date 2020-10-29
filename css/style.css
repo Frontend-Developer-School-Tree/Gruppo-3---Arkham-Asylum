@@ -12,10 +12,9 @@ body {
     padding: 0;
 }
 
-/* 
 .invisible {
     display: none !important;
-} */
+}
 
 /* card generica da personalizzare a seconda di detenuto o guardia */
 .card {
@@ -26,10 +25,9 @@ body {
     border-radius: 1.8rem;
 }
 
-#logo{
+#logo {
     width: 20rem;
 }
-
 
 /* ------------------------- FORM -------------------------*/
 
@@ -76,11 +74,11 @@ body {
     border: 1px solid black;
 }
 
-#btnLogin{
+#btnLogin {
     width: 50%;
     display: block;
     transform: translateX(50%);
-    padding: .8rem;
+    padding: 0.8rem;
     margin-top: 1rem;
 }
 

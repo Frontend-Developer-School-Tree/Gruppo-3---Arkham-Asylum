@@ -3,5 +3,10 @@
         "nomeGuardia": "John Doe",
         "idGuardia": 1,
         "natoIl": "12/03/1987"
+    },
+    {
+        "nomeGuardia": "Mick Doe",
+        "idGuardia": 2,
+        "natoIl": "12/03/1989"
     }
 ]

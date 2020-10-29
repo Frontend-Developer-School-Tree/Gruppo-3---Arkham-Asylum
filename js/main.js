@@ -62,6 +62,10 @@ class Detenuto {
 }
 
 class Guardia {
+    constructor(nome, natoIl) {
+        this.nome = nome;
+        this.natoIl = natoIl;
+    }
     static async getGuardia() {
         try {
             const response = await fetch(urlGuardie);
@@ -75,6 +79,13 @@ class Guardia {
 
                 cardGuardia.querySelector(".nome").textContent =
                     guardia.nomeGuardia;
+
+                cardGuardia.querySelector(
+                    ".idGuardia"
+                ).textContent = `ID: ${guardia.idGuardia}`;
+
+                cardGuardia.querySelector(".natoIl").textContent =
+                    guardia.natoIl;
 
                 return containerGuardie.appendChild(cardGuardia);
             });
@@ -108,5 +119,20 @@ function handleCategories() {
         containerDetenuto.classList.add("invisible");
         //chiamo la funzione per stampare le card dei detenuti
         Guardia.getGuardia();
+    }
+}
+
+const btnAddGuardia = document.getElementById("btnAddGuardia");
+btnAddGuardia.addEventListener("click", handleAddGuardia);
+
+function handleAddGuardia(e) {
+    e.preventDefault();
+    const inputNomeGuardia = document.querySelector("#inputNome").value;
+    const inputNatoGuardia = document.querySelector("#inputNato").value;
+    if (inputNomeGuardia === "" && inputNatoGuardia === "") {
+        alert("inserisci un nome");
+    } else {
+        const newGuardia = new Guardia(inputNomeGuardia, inputNatoGuardia);
+        console.log(newGuardia);
     }
 }
