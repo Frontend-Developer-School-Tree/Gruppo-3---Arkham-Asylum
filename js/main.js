@@ -15,8 +15,17 @@ const btnAssumiGuardia = document.getElementById('btnAssumiGuardia');
 
 btnAssumiGuardia.addEventListener('click', handleOpenGuardia);
 
-function handleOpenGuardia(){
+function handleOpenGuardia() {
     const modal = document.getElementById('modalContainerGuardia')
+    modal.classList.remove('invisible')
+}
+
+const btnRegistraDetenuti = document.getElementById('btnRegistraDetenuti');
+
+btnRegistraDetenuti.addEventListener('click', handleOpenDetenuti);
+
+function handleOpenDetenuti(){
+    const modal = document.getElementById('modalContainerDetenuto')
     modal.classList.remove('invisible')
 }
 
@@ -135,6 +144,7 @@ function handleAddGuardia(e) {
         let id = recuperaIdGuardia();
         cardGuardia.querySelector(".idGuardia").textContent = `ID: ${id}`;
         cardGuardia.querySelector(".natoIl").textContent = newGuardia.natoIl;
+
         document.getElementById('modalContainerGuardia').classList.add('invisible');
 
         return containerGuardie.appendChild(cardGuardia);
@@ -192,6 +202,8 @@ function handleAddDetenuto(e) {
         cardDetenuto.querySelector(".reato").textContent = "Reato: " + newDetenuto.reato;
         cardDetenuto.querySelector(".dataIngresso").textContent = "Incarcerato il: " + newDetenuto.ingresso;
         cardDetenuto.querySelector(".dataScarcerazione").textContent = "Data di Scarcerazione: " + newDetenuto.scarcerazione;        
+
+        document.getElementById('modalContainerDetenuto').classList.add('invisible');
 
         return containerDetenuto.appendChild(cardDetenuto);
     }
