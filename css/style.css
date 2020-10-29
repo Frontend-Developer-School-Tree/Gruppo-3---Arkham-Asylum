@@ -31,7 +31,7 @@ body {
 
 /* ------------------------- FORM -------------------------*/
 
-#modalContainer {
+#modalContainer{
     width: 100vw;
     height: 100vh;
     display: flex;
@@ -86,9 +86,10 @@ body {
 
 /* ------------------------- FORM AGGIUNGERE GUARDIA -------------------------*/
 
-#modalContainerGuardia{
+#modalContainerGuardia, #modalContainerDetenuto{
     width: 60rem;
-    height: 30rem;
+    height: auto;
+    padding: 3rem 0;
     display: flex;
     margin: auto;
     flex-direction: column;
@@ -97,10 +98,18 @@ body {
     border-radius: 1rem;
     background-color: yellow;
     animation: modalUp 2s;
-
 }
 
-#inputNome, #inputNato, #btnAddGuardia{
+
+/*  titolo form aggiungi detenuto/guardia  */
+
+#textFormDetenuto, #textFormGuardia{
+    font-size: 2rem;
+    text-transform: uppercase;
+}
+
+
+#inputNome, #inputNato, #btnAddGuardia, #btnAddDetenuto, .btnInpDet{
     width: 50%;
     display: block;
     transform: translateX(50%);
@@ -110,10 +119,12 @@ body {
     border: transparent;
 }
 
-#btnAddGuardia{
-    border: 2px solid black;
-    background-color: transparent;
+#btnAddGuardia, #btnAddDetenuto{
+    color: white;
+    background-color: black;
     cursor: pointer;
+    text-transform: uppercase;
+    padding: 1rem;
 }
 
 
