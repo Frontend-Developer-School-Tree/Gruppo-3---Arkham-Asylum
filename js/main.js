@@ -1,7 +1,9 @@
+const tplDet = document.getElementById("tplDetenuti");
+const tplGuarie = document.getElementById("tplGuardie");
 const containerDetenuto = document.getElementById("containerDetenuti");
 const containerGuardie = document.getElementById("containerGuardie");
-const tplDet = document.getElementById("tplDetenuti");
 const urlDet = "../db/detenuti.json";
+const urlGuardie = "../db/guardie.json";
 const categorieVisualizzazione = document.getElementById(
     "btnVisualizzaCategoria"
 );
@@ -10,7 +12,7 @@ const selectCategories = document.getElementById("selectCategories");
 class Detenuto {
     static async getDetenuto() {
         try {
-            const response = await fetch("../db/detenuti.json");
+            const response = await fetch(urlDet);
             const data = await response.json();
             // console.log(data);
 
@@ -20,8 +22,9 @@ class Detenuto {
 
                 cardDet.querySelector(".nome").textContent =
                     detenuto.nomePersonaggio;
-                cardDet.querySelector(".idDetenuto").textContent =
-                    detenuto.fascicoli.id;
+                cardDet.querySelector(
+                    ".idDetenuto"
+                ).textContent = `ID: ${detenuto.fascicoli.id}`;
                 cardDet.querySelector(".razza").textContent =
                     "Razza: " + detenuto.razza;
                 cardDet.querySelector(".coloreOcchi").textContent =
@@ -58,23 +61,38 @@ class Detenuto {
     }
 }
 
-class Guardie {
+class Guardia {
     static async getGuardia() {
         try {
-            //!da riempire
+            const response = await fetch(urlGuardie);
+            const data = await response.json();
+
+            data.map((guardia) => {
+                const cardGuardia = document.importNode(
+                    tplGuardie.content,
+                    true
+                );
+
+                cardGuardia.querySelector(".nome").textContent =
+                    guardia.nomeGuardia;
+
+                return containerGuardie.appendChild(cardGuardia);
+            });
         } catch (error) {
             console.error;
         }
     }
 }
 
-// Detenuto.getDetenuto();
+// Guardia.getGuardia();
 
 categorieVisualizzazione.addEventListener("click", handleCategories);
 
 function handleCategories() {
     // console.log(selectCategories.value);
     if (selectCategories.value === "detenuti") {
+        //pulisco il container
+        containerDetenuto.innerHTML = ``;
         //rendo il div dei detenuti visibile
         containerDetenuto.classList.remove("invisible");
         //e rendo invisibile l'altro div
@@ -82,11 +100,13 @@ function handleCategories() {
         //chiamo la funzione per stampare le card dei detenuti
         Detenuto.getDetenuto();
     } else if (selectCategories.value === "guardie") {
+        //pulisco il container
+        containerGuardie.innerHTML = ``;
         //rendo il div dei detenuti visibile
         containerGuardie.classList.remove("invisible");
         //e rendo invisibile l'altro div
         containerDetenuto.classList.add("invisible");
         //chiamo la funzione per stampare le card dei detenuti
-        Guardie.getGuardia();
+        Guardia.getGuardia();
     }
 }

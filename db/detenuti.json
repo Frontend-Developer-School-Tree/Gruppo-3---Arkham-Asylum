@@ -13,7 +13,7 @@
             "stato": ["morto", 1996],
             "id": 1,
             "dataCarcerazione": 1992,
-            "dataScarcerazione": "1998",
+            "dataScarcerazione": 1998,
             "reato": "omicidio"
         }
     },
@@ -31,7 +31,7 @@
             "stato": ["evaso", 2000],
             "id": 2,
             "dataCarcerazione": 1993,
-            "dataScarcerazione": "2001",
+            "dataScarcerazione": 2001,
             "reato": "omicidio"
         }
     },
@@ -49,7 +49,7 @@
             "stato": ["riacciuffato", 2000],
             "id": 3,
             "dataCarcerazione": 1994,
-            "dataScarcerazione": "2002",
+            "dataScarcerazione": 2002,
             "reato": "omicidio"
         }
     },
@@ -65,9 +65,27 @@
         "livelloDiPericolo": 2,
         "fascicoli": {
             "stato": ["recluso", 2002],
-            "id": 3,
+            "id": 4,
             "dataCarcerazione": 1994,
-            "dataScarcerazione": "2002",
+            "dataScarcerazione": 2002,
+            "reato": "omicidio"
+        }
+    },
+    {
+        "nomePersonaggio": "prova2",
+        "razza": "God / Eternal",
+        "caratteristicheFisiche": {
+            "coloreOcchi": "blue",
+            "coloreCapelli": "Brown",
+            "altezza": 198,
+            "peso": 126
+        },
+        "livelloDiPericolo": 2,
+        "fascicoli": {
+            "stato": ["recluso", 2002],
+            "id": 5,
+            "dataCarcerazione": 1994,
+            "dataScarcerazione": 2002,
             "reato": "omicidio"
         }
     }
