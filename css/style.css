@@ -2,15 +2,24 @@
     box-sizing: border-box;
 }
 
+@font-face{
+    font-family: 'customFont';
+    src: url('../fonts/bat_font.ttf') format('truetype');
+}
+
 html {
     font-size: 62.5%;
 }
 
 body {
-    font-family: "open sans";
+    font-family: 'customFont';
     margin: 0;
     padding: 0;
     background: #000;
+}
+
+button{
+    font-family: 'customFont';
 }
 
 .invisible {
@@ -49,6 +58,8 @@ body {
 }
 
 .btnNav{
+    font-size: 1rem;
+    letter-spacing: 0.5px;
     margin: 0 1rem;
     position: relative;
     left: 30px;
